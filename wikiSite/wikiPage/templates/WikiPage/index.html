@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wiki 列表</title>
+</head>
+<body>
+    <h2>iOS wiki 列表</h2>
+
+    <form role="search" method="get" id="searchform" action="{% url 'wikiPage:search' %}">
+        <input type="search" name="q" placeholder="搜索" required>
+        <button type="submit" value="search">搜索标题/作者</button>
+    </form>
+
+{% if latest_wiki_list %}
+    <ul>
+    {% for wiki in latest_wiki_list %}
+          <li><a href="{% url 'wikiPage:detail' wiki.url_text %}">{{ wiki.title_text }}</a></li>
+           作者: {{ wiki.author_text }}
+           &nbsp;&nbsp;&nbsp;更新时间: {{ wiki.pub_date }}
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+</html>
+
+
