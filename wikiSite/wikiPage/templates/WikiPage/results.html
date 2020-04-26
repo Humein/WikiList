@@ -6,7 +6,7 @@
   {% for wiki in wiki_list %}
       <li><a href="{% url 'wikiPage:detail' wiki.url_text %}">{{ wiki.title_text }}</a></li>
            作者: {{ wiki.author_text }}
-           &nbsp;&nbsp;&nbsp;更新时间: {{ wiki.pub_date }}
+           &nbsp;&nbsp;&nbsp;上传时间: {{ wiki.pub_date }}
   {% empty %}
     <div class="no-post">没找到对应的wiki</div>
   {% endfor %}
